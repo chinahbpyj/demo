@@ -64,11 +64,6 @@ public class MainActivity extends AppCompatActivity implements AirPlayClientCall
                 return;
             }
 
-            AirplayClientInterface.getInstance().setMirrorMode(AirplayClientInterface.MODE_FLUENCY_FIRST);
-            AirplayClientInterface.getInstance().setResolution(720);
-            AirplayClientInterface.getInstance().setBitrate(2);
-            AirplayClientInterface.getInstance().setServiceClass(CaptureService.class);
-
             if (!isMirrorConnected) {
                 if (mResultCode == 0 || mResultData == null) {
 

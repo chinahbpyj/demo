@@ -54,7 +54,7 @@ public class AirplayClientInterface {
 	public static final int MODE_FLUENCY_FIRST = 0;
 	public static final int MODE_QUALITY_FIRST = 1; // no fps control
 	
-	private int mMirrorMode;
+	private int mMirrorMode=MODE_FLUENCY_FIRST;
 	// executor service for asynchronous tasks to the service
 	private ExecutorService mExecutorService;
 	private ServiceInfo mServiceInfo = null;
@@ -96,8 +96,6 @@ public class AirplayClientInterface {
 	private ChannelGroup mAllChannels = null;
 	private int mAudioRtpSeqNum = 0;
 	public boolean hasExeception = false;
-	private Class<?> cls;
-
 	private static final byte[] STREAMINFO = { (byte) 0x62, (byte) 0x70, (byte) 0x6c, (byte) 0x69, (byte) 0x73,
 			(byte) 0x74, (byte) 0x30, (byte) 0x30, (byte) 0x58, (byte) 0x64, (byte) 0x65, (byte) 0x76, (byte) 0x69,
 			(byte) 0x63, (byte) 0x65, (byte) 0x49, (byte) 0x64, (byte) 0xd1, (byte) 0x0c, (byte) 0x0f, (byte) 0x54,
@@ -188,10 +186,6 @@ public class AirplayClientInterface {
 		this.mMirrorMode = mode;
 	}
 
-	public synchronized void setServiceClass(Class<?> cls) {
-		this.cls = cls;
-	}
-
 	//set the casted video's frame rate
 	private synchronized void setFrameRate(int rate) {
 		this.mFrameRate = rate;
@@ -238,7 +232,7 @@ public class AirplayClientInterface {
 		Log.i(TAG, "StopMirror");
 		isMirrorStarted = false;
 
-		Intent intent = new Intent(mContext, cls);
+		Intent intent = new Intent(mContext, CaptureService.class);
 		mContext.stopService(intent);
 	}
 
@@ -418,7 +412,7 @@ public class AirplayClientInterface {
 			Log.i(TAG, "Connect Audio Server...[Success] " + "listen on " + mAudioChannel.getLocalAddress().toString());
 		}
 
-		Intent intent = new Intent(mContext, cls);
+		Intent intent = new Intent(mContext, CaptureService.class);
 		intent.putExtra("ScreenDensity", mScreenDensity);
 		intent.putExtra("ResultCode", mResultCode);
 		intent.putExtra("ResultData", mResultData);
