@@ -1,0 +1,3 @@
+include ':mirror'
+include ':app'
+rootProject.name = "demo"
