@@ -1,4 +1,4 @@
-package com.mirror.demo;
+package com.tvos.androidmirror;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -27,10 +27,6 @@ import android.view.WindowManager;
 
 import androidx.core.app.NotificationCompat;
 
-import com.tvos.androidmirror.AirplayClientInterface;
-import com.tvos.androidmirror.AirplayMirriorOutputQueue;
-import com.tvos.androidmirror.AudioRecorder;
-import com.tvos.androidmirror.ScreenRecorder;
 import com.tvos.androidmirror.util.LOG;
 
 @SuppressLint("NewApi")

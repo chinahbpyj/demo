@@ -13,7 +13,6 @@ import android.content.pm.PackageManager;
 import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -27,6 +26,7 @@ import android.widget.Toast;
 import com.tvos.androidmirror.AirPlayClientCallback;
 import com.tvos.androidmirror.AirplayClientInterface;
 import com.tvos.androidmirror.AirplayUtils;
+import com.tvos.androidmirror.CaptureService;
 import com.tvos.androidmirror.util.LOG;
 
 import java.io.File;
